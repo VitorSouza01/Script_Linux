@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Estrutura do Código
+
+# -----------------------------------------------------------------------------
+
+# Menu de Tarefas
 clear
 menu() {
     clear
@@ -15,11 +20,11 @@ menu() {
     echo
     echo "  =================================="
     echo " * 1. Esvaziar a Lixeira            *"
-    echo " * 2. Criar pasta                   *"
+    echo " * 2. Criar Pasta                   *"
     echo " * 3. Escanear Disco Local          *"
-    echo " * 4. Word                          *"
+    echo " * 4. LibreOffice Writer            *"
     echo " * 5. Calculadora                   *"
-    echo " * 6. Deletar pasta                 *"
+    echo " * 6. Deletar Pasta                 *"
     echo " * 7. Modo Hackerman                *"
     echo " * 8. Travar o Terminal             *"
     echo " * 9. Sair                          *"
@@ -40,6 +45,10 @@ menu() {
     esac
 }
 
+# -----------------------------------------------------------------------------
+# Opcao 1. Esvaziar a Lixeira
+# Status:
+
 opcao1() {
     clear
     rm -rf ~/.local/share/Trash/*
@@ -49,6 +58,10 @@ opcao1() {
     read -p "Pressione Enter para continuar..."
     menu
 }
+
+# -----------------------------------------------------------------------------
+# Opcao 2. Criar Pasta
+# Status:
 
 opcao2() {
     clear
@@ -60,6 +73,10 @@ opcao2() {
     menu
 }
 
+# -----------------------------------------------------------------------------
+# Opcao 3. Escanear Disco Local 
+# Status:
+
 opcao3() {
     clear
     echo "=================================="
@@ -70,15 +87,23 @@ opcao3() {
     menu
 }
 
+# -----------------------------------------------------------------------------
+# Opcao 4. LibreOffice Writer 
+# Status: Esta Funcionando
+
 opcao4() {
     clear
     echo "=================================="
-    echo "* Abrindo Word...                 *"
+    echo "* LibreOffice Writer...          *"
     echo "=================================="
-    libreoffice --writer &
+    libreoffice24.2 --writer &
     read -p "Pressione Enter para continuar..."
     menu
 }
+
+# -----------------------------------------------------------------------------
+# Opcao 5. Calculadora   
+# Status: Esta Funcionando
 
 opcao5() {
     clear
@@ -90,6 +115,10 @@ opcao5() {
     menu
 }
 
+# -----------------------------------------------------------------------------
+# Opcao 6. Deletar Pasta    
+# Status:
+
 opcao6() {
     clear
     rm -rf ~/Desktop/deletar
@@ -99,6 +128,10 @@ opcao6() {
     read -p "Pressione Enter para continuar..."
     menu
 }
+
+# -----------------------------------------------------------------------------
+# Opcao 7. Modo Hackerman 
+# Status: Esta Funcionando
 
 opcao7() {
     # Definindo cores
@@ -111,10 +144,15 @@ reset='\e[0m'
     echo "*        Modo Hackerman...       *"
     echo "=================================="
     echo "Estamos brincando, isso é ilegal!"
+    tree /
     read -p "Pressione Enter para continuar..."
     menu
     echo -e "${reset}"
 }
+
+# -----------------------------------------------------------------------------
+# Opcao 8. Travar o Terminal 
+# Status:
 
 opcao8() {
     clear
@@ -126,9 +164,15 @@ opcao8() {
     done
 }
 
+# -----------------------------------------------------------------------------
+# Opcao 9. Sair    
+# Status: Esta Funcionando
+
 opcao9() {
     clear
     exit
 }
 
 menu
+
+# -----------------------------------------------------------------------------
