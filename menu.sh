@@ -3,14 +3,17 @@
 # Estrutura do Código
 
 # -----------------------------------------------------------------------------
-
 # Menu de Tarefas
+
 clear
 menu() {
     clear
-    echo -e "\e[32m"
+    # Definindo cores
+    azul='\e[34m'
+    reset='\e[0m'
+    echo -e "${preto}${azul}"
+    
     date
-    echo -e "\e[0m"
     echo
     echo -e "Computador: $HOSTNAME        Usuario: $USER"
     echo
@@ -47,11 +50,11 @@ menu() {
 
 # -----------------------------------------------------------------------------
 # Opcao 1. Esvaziar a Lixeira
-# Status:
+# Status: Esta Funcionando
 
 opcao1() {
     clear
-    rm -rf ~/.local/share/Trash/*
+    rm -r /home/kali/.local/share/Trash/files/*
     echo "=================================="
     echo "*      Lixeira Esvaziada          *"
     echo "=================================="
@@ -61,11 +64,11 @@ opcao1() {
 
 # -----------------------------------------------------------------------------
 # Opcao 2. Criar Pasta
-# Status:
+# Status: Esta Funcionando
 
 opcao2() {
     clear
-    mkdir -p ~/Desktop/deletar
+    mkdir /home/kali/Desktop/deletar
     echo "=================================="
     echo "*         Pasta criada            *"
     echo "=================================="
@@ -75,14 +78,22 @@ opcao2() {
 
 # -----------------------------------------------------------------------------
 # Opcao 3. Escanear Disco Local 
-# Status:
+# Status: Esta funcionando mais ou menos
+
+# Observacao: Foi realizado diversos testes para escanear o disco local do 
+# Kali Linux dentro da Maquina Virtual com os seguintes comandos "fcsk" 
+# (está comentado no código) e "smartctl" (está em execução), todos acabaram 
+# dando erro e provavelmente seria por conta da Maquina Virtual.
+# No entanto mesmo com erro, o "smartctl" teve um resultado satisfatório 
+# em sua execução apresentando informações significativas do disco.
 
 opcao3() {
     clear
     echo "=================================="
     echo "*     Escaneamento de disco       *"
     echo "=================================="
-    sudo fsck -y /
+    #sudo fsck /dev/sda1
+    sudo smartctl -a /dev/sda
     read -p "Pressione Enter para continuar..."
     menu
 }
@@ -117,11 +128,11 @@ opcao5() {
 
 # -----------------------------------------------------------------------------
 # Opcao 6. Deletar Pasta    
-# Status:
+# Status: Esta Funcionando
 
 opcao6() {
     clear
-    rm -rf ~/Desktop/deletar
+    rmdir /home/kali/Desktop/deletar
     echo "=================================="
     echo "*        Pasta deletada           *"
     echo "=================================="
@@ -134,12 +145,11 @@ opcao6() {
 # Status: Esta Funcionando
 
 opcao7() {
-    # Definindo cores
-preto='\e[40m'
-verde='\e[32m'
-reset='\e[0m'
+    # Definindo cores Hacker
+    verde='\e[32m'
+    reset='\e[0m'
     clear
-    echo -e "${preto}${verde}"
+    echo -e "${verde}"
     echo "=================================="
     echo "*        Modo Hackerman...       *"
     echo "=================================="
@@ -152,15 +162,18 @@ reset='\e[0m'
 
 # -----------------------------------------------------------------------------
 # Opcao 8. Travar o Terminal 
-# Status:
+# Status: Esta Funcionando
 
 opcao8() {
     clear
     echo "=================================="
     echo "* Travar o Terminal...            *"
     echo "=================================="
+    # Loop ate que o usuario interrompa a execucao
     while true; do
-        :
+        echo "Aperte Ctrl + C para parar a execução"
+        # Aguarda 1 segundo antes de repetir a mensagem
+        sleep 1  
     done
 }
 
