@@ -2,8 +2,8 @@
 <br>
 
 ## 📚 Descrição do Projeto
-O código apresentado é uma atividade da matéria de Sistemas Operacionais da FATEC Santana de Parnaíba.<br>
-O arquivo é um código em Bash (Shell Script usado como padrão em sistemas Unix e Linux), nele é apresentado um menu de tarefas tendo as seguintes opções  possíveis;
+O código apresentado é uma atividade da matéria de Sistemas Operacionais da FATEC Santana de Parnaíba.
+<br>O arquivo é um código em Bash (Shell Script usado como padrão em sistemas Unix e Linux), nele é apresentado um menu de tarefas tendo as seguintes opções  possíveis;
 * Esvaziar a Lixeira            
 * Criar uma Pasta                   
 * Escanear um Disco Local          
